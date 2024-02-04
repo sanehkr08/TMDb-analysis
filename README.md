@@ -2,6 +2,9 @@
 <p>This project is all about how to use API to extract data. An API, which stands for Application Programming Interface, is a set of defined rules that enable different applications to communicate with each other. It acts as an intermediary layer that processes data transfers between systems, allowing companies to open their application data and functionality to external third-party developers, business partners, and internal departments within their organizations. For example: OpenAI, reddit, google provide API to use their codes and data in order to create new applications or software. 
 </p>
 <p>Similary, TMDb provides API to access its full data about movies, TV shows, actors and  many other demography. So, I used TMDb API and extracts several data from the database, below you can see how and what data I have extracted.</p>
+<h2>How to call API</h2>
+<p>Every applicatin has their own steps and rules to request their APIs. For TMDb, you need to log in to their website and generate an API key. After this create an application. Now use this API key or access token in open authentication and access the data</p>
+<p>Follow this link to get more clarification and step by step guide: https://developer.themoviedb.org/docs/getting-started</p>
 <h2>Tools Used</h2>
 <ul>
   <li>Python and Requests(python library)</li>
