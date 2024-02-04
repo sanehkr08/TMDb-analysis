@@ -204,3 +204,64 @@ for i in info['cast']:
     if i['name'] == "James McAvoy":
         print("yes")
 ```
+<h3>Fetch the overview of the TV Show "FRIENDS" </h3>
+
+```python
+import requests
+headers = {
+    "accept": "application/json",
+    "Authorization": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5OTlhNDI1NGIyNTg4YjY1MTdlZThmMDMwY2RiZWJmOCIsInN1YiI6IjY1OGYxYWE2NjM1MzZhNWQxNGI4NjBkMiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.ZjeViv4_i83uaGVPMIQK5OR3l5uIM8i0uFQFlW7jp2A"
+}
+api_link = "https://api.themoviedb.org/3"
+
+response2 = requests.get("https://api.themoviedb.org/3/search/tv",params = {"query":"Friends"}, headers = headers)
+data=response2.json()
+
+for i in data['results']:
+    if i['original_name'] == "Friends":
+        print(i['overview'])
+```
+<h3>Fetch the name and air date of S06E05 of the TV Show 'The Big Bang Theory'</h3>
+
+```python
+import requests
+headers = {
+    "accept": "application/json",
+    "Authorization": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5OTlhNDI1NGIyNTg4YjY1MTdlZThmMDMwY2RiZWJmOCIsInN1YiI6IjY1OGYxYWE2NjM1MzZhNWQxNGI4NjBkMiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.ZjeViv4_i83uaGVPMIQK5OR3l5uIM8i0uFQFlW7jp2A"
+}
+base_url = 'https://api.themoviedb.org/3'
+
+tv_show_id = 1418
+season_number = 6
+episode_number = 5
+url = f'{base_url}/tv/{tv_show_id}/season/{season_number}/episode/{episode_number}'
+
+response = requests.get(url, headers = headers)
+data = response.json()
+
+name = data['name']
+air_date = data['air_date']
+print(name," - ",air_date)
+```
+<h3>Count the number of males and females in the cast of "Money Heist"</h3>
+
+```python
+import requests
+headers = {
+    "accept": "application/json",
+    "Authorization": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5OTlhNDI1NGIyNTg4YjY1MTdlZThmMDMwY2RiZWJmOCIsInN1YiI6IjY1OGYxYWE2NjM1MzZhNWQxNGI4NjBkMiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.ZjeViv4_i83uaGVPMIQK5OR3l5uIM8i0uFQFlW7jp2A"
+}
+
+r = requests.get("https://api.themoviedb.org/3/tv/71446/credits", headers = headers)
+r.status_code
+data = r.json()
+male = 0
+female = 0
+for i in data['cast']:
+    if i['gender'] == 1:
+        female = female + 1
+    if i['gender'] == 2:
+        male = male + 1
+        
+print(male, female)
+```
